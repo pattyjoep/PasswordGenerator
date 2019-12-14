@@ -1,28 +1,67 @@
 
-var Letters = 'abcdefghijklmnopqrstuvwxyz'.split('');
-var Numbers = [1,2,3,4,5,6,7,8,9,10];
-var SpecChar = ["!","#","$","%","&","*","?"];
+//Established Variables
+        var Generatebtn = document.querySelector("#generate")
 
-var Generate = document.querySelector("#generate");
-
-
-
-//Functions
-function GeneratePassword() {
-    var Length = prompt("Select a number between 15 and 128");
-    
-  if (Length >= 15 && Length <= 128) {
-    var UserSelectCapLetters = confirm("Do you want upper-case letters in your password?");
-    var UserSelectLowLetters = confirm("Do you want lower-case letters in your password?");
-    var UserSelectNumbers = confirm("Do you want numbers in your password?");
-    var UserSelectSpecChar = confirm("Do you want special characters in your password?");
-    
-    }
-}
 
 //Event Listeners
-Generate.addEventListener("click", GeneratePassword)
+    Generatebtn.addEventListener("click", GeneratePassword)
+    //onclick="GeneratePassword()"
+
+//Functions
+    function GeneratePassword() {
+
+            var PWOutput = document.querySelector("#PWContainer")
+
+        //arrays  
+                var PWLowerLetters = "abcdefghijklmnopqrstuvwxyz".split('');
+                var PWUpperLetters= "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
+                var PWNumbers = "0123456789".split('');
+                var PWSpecialChar = "!#$%&*?".split('');
+            var MasterArray = [PWLowerLetters, PWUpperLetters, PWNumbers, PWSpecialChar]
+            var SelectedArray = []
+        
+
+        //Checkboxes
+            var LowerBool = document.querySelector("#chkaz").checked
+            var UpperBool = document.querySelector("#chkCapAZ").checked
+            var NumbBool = document.querySelector("#chkNumb").checked
+            var SpecialCharBool = document.querySelector("#chkSpecChar").checked
+            
+            //All checkboxes
+                var chkBoxes = document.querySelectorAll('input[type="checkbox"]')
+
+            //Checkboxes "true" count
+                var totalTrue = 0;
+        
+        //Parse input textbox as integer
+            var PWLength = parseInt(document.querySelector("#length").value)
+        
+
+        for (i = 0; i < chkBoxes.length; i++) {
+            
+            if (chkBoxes[i].checked === true) {
+
+                totalTrue++
+                SelectedArray.push(MasterArray[i]) 
+            }
+        }
 
 
+        if (totalTrue <= 2 || PWLength < 8 || PWLength > 128) {
+            alert("Password Criteria Not Valid. Must contain between 8 - 128 characters and contain AT LEAST 3 of the 4 following criteria:\n\n1) Lowercase (a-z)\n2) Uppercase (A-Z)\n3) Numbers (0-1)\n4) Special Characters (!#$%&*?)")
+        }    
+            else {  
+                    for (var i = 0; i < PWLength; i++) {
 
-//console.log(Math.floor(Math.random(Numbers) + Math.floor(Math.random(Letters) + Math.floor(Math.random(SpecChar))))
+                        var RandArray = SelectedArray[Math.floor(Math.random() * SelectedArray.length)];
+                       
+
+                        var RandChar = RandArray[Math.floor(Math.random() * RandArray.length)];
+
+                        PWOutput.textContent = PWOutput.textContent + RandChar
+                        
+                    }
+                }
+}
+
+
