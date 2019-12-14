@@ -50,7 +50,7 @@
 
 
         if (totalTrue <= 2 || PWLength < 8 || PWLength > 128) {
-            alert("Password Criteria Not Valid. Must contain between 8 - 128 characters and contain AT LEAST 3 of the 4 following criteria:\n\n1) Lowercase (a-z)\n2) Uppercase (A-Z)\n3) Numbers (0-1)\n4) Special Characters (!#$%&*?)")
+            alert("Password criteria not valid. Must contain between 8 - 128 characters and contain AT LEAST 3 of the 4 following:\n\n1) Lowercase (a-z)\n2) Uppercase (A-Z)\n3) Numbers (0-1)\n4) Special Characters (!#$%&*?)")
         }    
             else {  
                     for (var i = 0; i < PWLength; i++) {
