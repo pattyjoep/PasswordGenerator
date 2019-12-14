@@ -60,6 +60,10 @@ body {
     float: right;
 }
 
+.btn-warning {
+    margin-left: 25px
+}
+
 .main {
     width: 65%;
     height: 80%;

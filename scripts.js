@@ -1,11 +1,13 @@
 
 //Established Variables
         var Generatebtn = document.querySelector("#generate")
-
+        var clearbtn = document.querySelector("#clear")
 
 //Event Listeners
     Generatebtn.addEventListener("click", GeneratePassword)
     //onclick="GeneratePassword()"
+    
+    clearbtn.addEventListener("click", Clear)
 
 //Functions
     function GeneratePassword() {
@@ -64,4 +66,7 @@
                 }
 }
 
+function Clear() {
+    document.location.reload(true)
+}
 
