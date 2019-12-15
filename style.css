@@ -79,3 +79,8 @@ body {
     margin-top: 10px;
 
 }
+
+input[type="text"] {
+
+    width: 35px
+}

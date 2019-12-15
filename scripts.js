@@ -1,13 +1,16 @@
 
 //Established Variables
         var Generatebtn = document.querySelector("#generate")
-        var clearbtn = document.querySelector("#clear")
+        var Clearbtn = document.querySelector("#clear")
+        var Copybtn = document.querySelector("#copy")
 
 //Event Listeners
     Generatebtn.addEventListener("click", GeneratePassword)
     //onclick="GeneratePassword()"
     
-    clearbtn.addEventListener("click", Clear)
+    Clearbtn.addEventListener("click", Clear)
+
+    Copybtn.addEventListener("click", CopyPassword)
 
 //Functions
     function GeneratePassword() {
@@ -70,3 +73,19 @@ function Clear() {
     document.location.reload(true)
 }
 
+function CopyPassword() {
+
+        if (document.selection) { 
+            var range = document.body.createTextRange();
+            range.moveToElementText(document.getElementById("PWContainer"));
+            range.select().createTextRange();
+            document.execCommand("copy"); 
+        
+        } else if (window.getSelection) {
+            var range = document.createRange();
+             range.selectNode(document.getElementById("PWContainer"));
+             window.getSelection().addRange(range);
+             document.execCommand("copy");
+             //alert("text copied") 
+            }
+}
