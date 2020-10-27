@@ -6,10 +6,7 @@
 
 //Event Listeners
     Generatebtn.addEventListener("click", GeneratePassword)
-    //onclick="GeneratePassword()"
-    
     Clearbtn.addEventListener("click", Clear)
-
     Copybtn.addEventListener("click", CopyPassword)
 
 //Functions
@@ -18,10 +15,10 @@
             var PWOutput = document.querySelector("#PWContainer")
 
         //arrays  
-                var PWLowerLetters = "abcdefghijklmnopqrstuvwxyz".split('');
-                var PWUpperLetters= "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
-                var PWNumbers = "0123456789".split('');
-                var PWSpecialChar = "!#$%&*?".split('');
+            var PWLowerLetters = "abcdefghijklmnopqrstuvwxyz".split('');
+            var PWUpperLetters= "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
+            var PWNumbers = "0123456789".split('');
+            var PWSpecialChar = "!#$%&*?".split('');
             var MasterArray = [PWLowerLetters, PWUpperLetters, PWNumbers, PWSpecialChar]
             var SelectedArray = []
         
@@ -39,9 +36,7 @@
                 var totalTrue = 0;
         
         //Parse input textbox as integer
-            var PWLength = parseInt(document.querySelector("#length").value)
-        
-
+        var PWLength = parseInt(document.querySelector("#length").value)
         for (i = 0; i < chkBoxes.length; i++) {
             
             if (chkBoxes[i].checked === true) {
@@ -50,16 +45,13 @@
                 SelectedArray.push(MasterArray[i]) 
             }
         }
-
-
         if (totalTrue <= 2 || PWLength < 8 || PWLength > 128) {
             alert("Password criteria not valid. Must contain between 8 - 128 characters and contain AT LEAST 3 of the 4 following:\n\n1) Lowercase (a-z)\n2) Uppercase (A-Z)\n3) Numbers (0-1)\n4) Special Characters (!#$%&*?)")
         }    
             else {  
+                    PWOutput.textContent = " "
                     for (var i = 0; i < PWLength; i++) {
-
                         var RandArray = SelectedArray[Math.floor(Math.random() * SelectedArray.length)];
-                       
 
                         var RandChar = RandArray[Math.floor(Math.random() * RandArray.length)];
 
@@ -68,11 +60,9 @@
                     }
                 }
 }
-
 function Clear() {
     document.location.reload(true)
 }
-
 function CopyPassword() {
 
         if (document.selection) { 
