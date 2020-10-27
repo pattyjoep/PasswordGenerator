@@ -4,4 +4,4 @@ This application generates a random password using the critera specified by the 
 
 Continue clicking the button for a longer password as well!
 
-URL: https://github.com/pjpetro/PasswordGenerator
+URL: https://pjpetro.github.io/PasswordGenerator/
