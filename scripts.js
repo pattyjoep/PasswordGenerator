@@ -1,13 +1,11 @@
 
 //Established Variables
-        var Generatebtn = document.querySelector("#generate")
-        var Clearbtn = document.querySelector("#clear")
-        var Copybtn = document.querySelector("#copy")
+var Generatebtn = document.querySelector("#generate")
+var Copybtn = document.querySelector("#copy")
 
 //Event Listeners
-    Generatebtn.addEventListener("click", GeneratePassword)
-    Clearbtn.addEventListener("click", Clear)
-    Copybtn.addEventListener("click", CopyPassword)
+Generatebtn.addEventListener("click", GeneratePassword)
+Copybtn.addEventListener("click", CopyPassword)
 
 //Functions
     function GeneratePassword() {
@@ -45,8 +43,8 @@
                 SelectedArray.push(MasterArray[i]) 
             }
         }
-        if (totalTrue <= 2 || PWLength < 8 || PWLength > 128) {
-            alert("Password criteria not valid. Must contain between 8 - 128 characters and contain AT LEAST 3 of the 4 following:\n\n1) Lowercase (a-z)\n2) Uppercase (A-Z)\n3) Numbers (0-1)\n4) Special Characters (!#$%&*?)")
+        if (totalTrue <= 2 || PWLength < 8 || PWLength > 15) {
+            alert("Password criteria not valid. Must contain between 8 - 15 characters and contain AT LEAST 3 of the 4 following:\n\n1) Lowercase (a-z)\n2) Uppercase (A-Z)\n3) Numbers (0-1)\n4) Special Characters (!#$%&*?)")
         }    
             else {  
                     PWOutput.textContent = " "
@@ -60,22 +58,17 @@
                     }
                 }
 }
-function Clear() {
-    document.location.reload(true)
-}
-function CopyPassword() {
 
-        if (document.selection) { 
-            var range = document.body.createTextRange();
-            range.moveToElementText(document.getElementById("PWContainer"));
-            range.select().createTextRange();
-            document.execCommand("copy"); 
-        
-        } else if (window.getSelection) {
-            var range = document.createRange();
-             range.selectNode(document.getElementById("PWContainer"));
-             window.getSelection().addRange(range);
-             document.execCommand("copy");
-             //alert("text copied") 
-            }
+function CopyPassword() {
+    if (document.selection) { 
+        var range = document.body.createTextRange();
+        range.moveToElementText(document.getElementById("PWContainer"));
+        range.select().createTextRange();
+        document.execCommand("copy"); 
+    } else if (window.getSelection) {
+        var range = document.createRange();
+        range.selectNode(document.getElementById("PWContainer"));
+        window.getSelection().addRange(range);
+        document.execCommand("copy");
+    }
 }

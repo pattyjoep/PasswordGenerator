@@ -1,37 +1,6 @@
-.header {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    font-weight: bold;
-    font-size: xx-large;
-}
-
-h1 {
-    margin-left: 50px;
-    margin-top: 20px;
-}
-
-hr {
-    margin-top: 20px; 
-    margin-left: 50px;
-    margin-right: 50px;
-    
-}
-
 html {
     width: 100%;
     height: 100%;
-}
-
-.passwordContainer {
-    margin-left: 50px;
-    margin-right: 50px;
-    border: 1px dashed gray;
-    border-radius: 5px;
-    height: 50%;
-    text-align: center;
-    background-color: #e4e4e4;
-    padding: 20px;
 }
 
 body {
@@ -39,48 +8,32 @@ body {
     width: 100%;
     background-color: #f8f9fa;
 }
-
-
-.buttons {
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
+.password {
+    position: relative;
+    height: 200px;
 }
 
-.btn { 
-    padding: 10px;
-    border-radius: 43px;
+.copy-btn {
+    position: absolute;
+    top: 0;
+    right: 15px;
 }
 
-.btn-danger {
-    float: left;
-}
-
-.btn-primary {
-    float: right;
-}
-
-.btn-warning {
-    margin-left: 25px
-}
-
-.main {
-    width: 65%;
-    height: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    box-shadow: 1px 0px 5px 1px;
+.passwordContainer {
+    border: 1px dashed gray;
     border-radius: 5px;
+    height: 200px;
+    text-align: center;
+    background-color: #e4e4e4;
+    padding: 20px;
 }
 
 .pwcreds {
-    margin-left: 50px;
-    margin-right: 50px;
     margin-top: 10px;
-
 }
 
-input[type="text"] {
-
-    width: 35px
+input[type="number"] {
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 5px;
 }
